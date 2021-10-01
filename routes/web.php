@@ -3,6 +3,7 @@
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
     return view('posts', [
         'posts' => Post::all()
     ]);
