@@ -4,10 +4,8 @@
 <link rel="stylesheet" href="/app.css">
 
 <body>
-    <header>
-        @yield('banner')
-    </header>
-    @yield('content')
+    {{ $slot }}
+{{--    special name for components, you do not need to use x-slot--}}
 </body>
 
 
