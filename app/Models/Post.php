@@ -15,12 +15,12 @@ class Post extends Model
     public function category()
     {
         // hasOne, hasMany, belongsTo, belongsToMany
-        return $this->belongsTo((Category::class));
+        return $this->belongsTo(Category::class);
     }
 
-    public function user()
+    public function author() //author.id
     {
         // hasOne, hasMany, belongsTo, belongsToMany
-        return $this->belongsTo((User::class));
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
