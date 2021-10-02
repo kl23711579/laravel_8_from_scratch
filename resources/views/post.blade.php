@@ -51,7 +51,7 @@
             </article>
         </main>
 
-        
+
     </section>
 </x-layout>
 
