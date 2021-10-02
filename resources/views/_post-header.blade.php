@@ -18,7 +18,7 @@
                 <x-dropdown-item href="/" :active="request()->routeIs('home')">All</x-dropdown-item>
                 @foreach($categories as $category)
                     <x-dropdown-item
-                        href="/categories/{{ $category->slug }}"
+                        href="/?category={{ $category->slug }}"
 {{--                        is current request match url--}}
                         :active="request()->is('categories/'. $category->slug)"
                     >{{ ucwords($category->name) }}</x-dropdown-item>
