@@ -19,21 +19,23 @@ class SessionsController extends Controller
         ]);
         // attempt to authenticate and log in the user
         // based on the provided crefentials
-        if(auth()->attempt($attributes))
+        if(! auth()->attempt($attributes))
         {
-            // prevent session fixation, so we need to regenerate the session id
-            session()->regenerate();
-            return redirect('/')->with('success', 'Welcome Back!');
-        }
-//        method 1
-//        return back()
-//            ->withInput()
-//            ->withErrors(['email' => 'Yout provided credentials could not be verfied.']);
+//            // method 1
+//            return back()
+//                ->withInput()
+//                ->withErrors(['email' => 'Yout provided credentials could not be verfied.']);
 
-        // method 2
-        throw ValidationException::withMessages(['email' => 'Yout provided credentials could not be verfied.']);
+            // method 2
+            throw ValidationException::withMessages(['email' => 'Yout provided credentials could not be verfied.']);
+        }
+
+        // prevent session fixation, so we need to regenerate the session id
+        session()->regenerate();
 
         // redirect with message
+        return redirect('/')->with('success', 'Welcome Back!');
+
     }
     public function destroy()
     {
